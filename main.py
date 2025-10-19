@@ -17,6 +17,6 @@ PDF_PATH = ".\\pdf"
 PFX_PATH = ".\\pfx\\" + PFX_NAME + ".pfx"
 SIGN_PATH = ".\\sign\\" + SIGN_NAME + ".png"
 
-auto = AutomaticSignature(PDF_PATH,PFX_PATH,PFX_PASSWORD,SIGN_PATH)
-auto.set_position(PAGE, X_POS, Y_POS)
-auto.generate()
+esign = AutomaticSignature(PDF_PATH,PFX_PATH,PFX_PASSWORD,SIGN_PATH)
+esign.set_position(PAGE, X_POS, Y_POS)
+esign.generate()
