@@ -1,6 +1,8 @@
 from spire.pdf.common import *
 from spire.pdf import *
 from pathlib import Path
+from PIL import Image
+import tempfile
 
 class AutomaticSignature():
     def __init__(self,pdf,pfx,pfx_password,sign):
@@ -12,10 +14,21 @@ class AutomaticSignature():
         self._dx = 0.0
         self._dy = 0.0
 
+        self._scale = 1.0
+
+        # Clean the result's folder
+        result_folder = Path(".\\results")
+        for file in result_folder.glob("*"):
+            if file.is_file():
+                os.remove(file)
+
     def set_position(self,page : int, dx : float,dy : float):
         self._dx = dx
         self._dy = dy
         self._page = page
+
+    def set_scale(self,scale : float):
+        self._scale = scale
 
     def generate(self):
         for pdf_file in self.pdf.glob("*.pdf"):
@@ -44,7 +57,7 @@ class AutomaticSignature():
             appearance = PdfSignatureAppearance(signature)
 
             # Load an image
-            image = PdfImage.FromFile(self.sign)
+            image = self._resize_image()
 
             # Set the image as the signature image
             appearance.SignatureImage = image
@@ -60,8 +73,8 @@ class AutomaticSignature():
                                         page,
                                         page.Size.Width - self._dx, 
                                         page.Size.Height - self._dy, 
-                                        (float)(image.Width), 
-                                        (float)(image.Height), 
+                                        float(image.Width), 
+                                        float(image.Height), 
                                         appearance)
 
             # Save the signed document
@@ -70,3 +83,18 @@ class AutomaticSignature():
 
             # Dispose resources
             doc.Dispose()
+
+    def _resize_image(self):
+        # Resize image before using
+        with Image.open(self.sign) as img:
+            new_size = (int(img.width * self._scale), int(img.height * self._scale))
+            resized_img = img.resize(new_size, Image.Resampling.LANCZOS)
+
+            # Make temp file and save
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as temp_file:
+                temp_path = temp_file.name
+                resized_img.save(temp_path, format="PNG")
+
+        # Close file before using by Spire
+        image = PdfImage.FromFile(temp_path)
+        return image

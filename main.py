@@ -9,8 +9,8 @@ SIGN_NAME = "sign"
 
 # Page and position
 PAGE = 1
-X_POS = 320.0
-Y_POS = 380.0
+X_POS = 280.0
+Y_POS = 375.0
 
 # Keep these variables
 PDF_PATH = ".\\pdf"
@@ -19,4 +19,5 @@ SIGN_PATH = ".\\sign\\" + SIGN_NAME + ".png"
 
 esign = AutomaticSignature(PDF_PATH,PFX_PATH,PFX_PASSWORD,SIGN_PATH)
 esign.set_position(PAGE, X_POS, Y_POS)
+esign.set_scale(0.85) # for signature scale (optional)
 esign.generate()
