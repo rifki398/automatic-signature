@@ -1,4 +1,4 @@
-# Automatic Signature
+# Automatic PDF Signature
 This is a Python program that automatically adds a digital signature to multiple PDF files at once.
 It is designed for administrative, legal, or document workflows where bulk signing is needed efficiently — without manually signing each file.
 
@@ -10,17 +10,20 @@ It is designed for administrative, legal, or document workflows where bulk signi
 - **Customizable — easily** change signature position.
 
 ## Preparation
-- `pdf` — Save your PDF here.
-- `sign` — Save your signature here (format in PNG).
-- `results` — Your results will exported here.
-- `pfx` — Save your PFX here.
+- Run `pip install Spire.PDF` in your terminal (if you didn't install the library yet)
+- Save your PDFs in `pdf`
+- Save your signature here (format in PNG) in `sign`
+- Save your PFX in `pfx`
 
 ## How to Use
 1. Open `main` script.
 2. Edit the pfx file's name, password, and your signature.
 3. Edit the signature's page and position.
 4. Run the script.
+5. Check your results in `results`
 
-## Additional Tutorial
-- [How to create PFX](https://www.youtube.com/watch?v=k8taD3b7MP0)
+## Notes
+For the PFX tutorial, check this [link](https://www.youtube.com/watch?v=k8taD3b7MP0).
+
+Special thanks to [Alexander Stock](https://medium.com/@alexaae9/7-ways-to-digitally-sign-a-pdf-document-using-python-cf2b5bbe7722) for the tutorial.
 
