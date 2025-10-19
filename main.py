@@ -1,18 +1,18 @@
 from src.make_sign import AutomaticSignature
 
-# Edit the PFX file's name and password
+# PFX file's name and password
 PFX_NAME = "MyPFX"
 PFX_PASSWORD = "testpfx"
 
-# Edit your signature file's name
+# Edit your signature image's name
 SIGN_NAME = "sign"
 
-# Edit the page and position
+# Page and position
 PAGE = 1
 X_POS = 320.0
 Y_POS = 380.0
 
-# Keep these variable
+# Keep these variables
 PDF_PATH = ".\\pdf"
 PFX_PATH = ".\\pfx\\" + PFX_NAME + ".pfx"
 SIGN_PATH = ".\\sign\\" + SIGN_NAME + ".png"
