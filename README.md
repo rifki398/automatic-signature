@@ -9,6 +9,12 @@ It is designed for administrative, legal, or document workflows where bulk signi
 - **Preserves File Names** — exported files keep the same names as their originals.
 - **Customizable — easily** change signature position.
 
+## Preparation
+- `pdf` — Save your PDF here.
+- `sign` — Save your signature here (format in PNG).
+- `results` — Your results will exported here.
+- `pfx` — Save your PFX here.
+
 ## How to Use
 1. Open `main` script.
 2. Edit the pfx file's name, password, and your signature.
@@ -16,5 +22,5 @@ It is designed for administrative, legal, or document workflows where bulk signi
 4. Run the script.
 
 ## Additional Tutorial
-- (How to create PFX)[https://www.youtube.com/watch?v=k8taD3b7MP0]
+- [How to create PFX](https://www.youtube.com/watch?v=k8taD3b7MP0)
 
