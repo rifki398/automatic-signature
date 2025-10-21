@@ -5,11 +5,15 @@ from PIL import Image
 import tempfile
 
 class AutomaticSignature():
-    def __init__(self,pdf,pfx,pfx_password,sign):
-        self.pdf = Path(pdf)
-        self.pfx = pfx
-        self.pfx_password = pfx_password
-        self.sign = sign
+    def __init__(self,PFX_NAME,PFX_PASSWORD,SIGN_NAME):
+        PDF_PATH = ".\\pdf"
+        PFX_PATH = ".\\pfx\\" + PFX_NAME + ".pfx"
+        SIGN_PATH = ".\\sign\\" + SIGN_NAME + ".png"
+
+        self.pdf = Path(PDF_PATH)
+        self.pfx = PFX_PATH
+        self.pfx_password = PFX_PASSWORD
+        self.sign = SIGN_PATH
 
         self._dx = 0.0
         self._dy = 0.0
