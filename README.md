@@ -22,6 +22,10 @@ It is designed for administrative, legal, or document workflows where bulk signi
 4. Run the script.
 5. Check your results in `results`
 
+## Dependencies
+- Spire PDF (11.9.2)
+- Pillow (10.4.0)
+
 ## Notes
 For the PFX tutorial, check this [link](https://www.youtube.com/watch?v=k8taD3b7MP0).
 
